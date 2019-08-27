@@ -49,7 +49,7 @@ def collector(event, context):
     resp_kraken = requests.get(kraken)
 
     ex_rate = json.loads(resp_exch.content)["rates"]
-    req["timestamp"] = timestamp
+    ex_rate["timestamp"] = timestamp
 
     json_luno = formatter(resp_luno, timestamp)
     json_kraken = formatter(resp_kraken, timestamp)
